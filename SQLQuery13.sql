@@ -15,6 +15,7 @@ CREATE TABLE Sorta(
 	TrenutnaKolicina int,
 	NabavnaCijena decimal(10,2) CONSTRAINT CH_NabavnaCijena CHECK (NabavnaCijena > 0),
 	ProdajnaCijena decimal(10,2) CONSTRAINT CH_ProdajnaCijena CHECK (ProdajnaCijena > 0),
+	CONSTRAINT CK_ProdajnaCijena_Greather_Than_NabavnaCijena CHECK (ProdajnaCijena > NabavnaCijena),
 	VoceID int CONSTRAINT FK_Sorta_Voce FOREIGN KEY REFERENCES Voce(IDVoce) NOT NULL
 )
 
